@@ -17,6 +17,7 @@ The following example demonstrates how to use this library with an ESP32 device:
 
 ```c
 #include "MQTT311Client.h"
+// Include all necessary headers (Connect, Publish ...)
 
 void app_main(void)
 {
