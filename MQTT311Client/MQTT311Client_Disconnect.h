@@ -16,6 +16,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "MQTT311Client/MQTT311Client.h"
 
 /*   ----------------- DISCONNECT MESSAGE STRUCTURE | B0 | B1 | B2 | .. ----------------------
 
@@ -28,8 +29,8 @@ struct DISCONNECT_MESSAGE
 {
     void (*MQTT311Client_DisconnectWithStruct)(struct DISCONNECT_MESSAGE *);
     
-    uint16_t remaining_length;                      /* Remaining length of the packet  = 0 for PINGRES*/  
-    uint8_t packet_type;                            /* MQTT Message Packet Type*/
+    uint16_t remaining_length;                      /**< Remaining length of the packet  = 0 for PINGRES*/  
+    uint8_t packet_type;                            /**< MQTT Message Packet Type*/
 };
 
 /* ----------------------------------------------------------------------------------------- */
