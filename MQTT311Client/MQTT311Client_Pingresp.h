@@ -16,6 +16,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "MQTT311Client/MQTT311Client.h"
 
 /*   ----------------- PINGRESP MESSAGE STRUCTURE | B0 | B1 | B2 | .. ----------------------
 
@@ -24,15 +25,15 @@
 */
 
 /* Packet Information */
-#define PINGRESP_PACKET_REMAINING_LENGTH     0x00        /* Packet's fixed remaining length */
-#define PINGRESP_PACKET_SIZE                 "2"         /* Packet size */
+#define PINGRESP_PACKET_REMAINING_LENGTH     0x00        /**< Packet's fixed remaining length */
+#define PINGRESP_PACKET_SIZE                 "2"         /**< Packet size */
 
 /* PINGRESP Message Structure */
 struct PINGRESP_MESSAGE 
 {
-    char* packet_size;                              /* Size of the packet */
-    uint16_t remaining_length;                      /* Remaining length of the packet  = 0 for PINGRES*/ 
-    uint8_t packet_type;                            /* MQTT Message Packet Type*/ 
+    char* packet_size;                              /**< Size of the packet */
+    uint16_t remaining_length;                      /**< Remaining length of the packet  = 0 for PINGRES*/ 
+    uint8_t packet_type;                            /**< MQTT Message Packet Type*/ 
 };
 
 /* Function declarations */
