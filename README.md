@@ -52,16 +52,16 @@ void app_main(void)
     MQTT311Client_Connect(0xC2, 600, "", "");
 
     /* ----- Publish some messages ------*/
-    MQTT311Client_Publish(0x00, "/topic/topic1", 0x00, "test1");
+    MQTT311Client_Publish(0x00, "/topic/topic1", 0x00, "test1", sizeof("test1"));
     vTaskDelay(pdMS_TO_TICKS(1000));
-    MQTT311Client_Publish(0x00, "/topic/topic2", 0x00, "test2");
+    MQTT311Client_Publish(0x00, "/topic/topic2", 0x00, "test2", sizeof("test2"));
     vTaskDelay(pdMS_TO_TICKS(1000));
    
     /* ------ Subscribe to some topic ------ */
     MQTT311Client_Subscribe(0x02, "/topic/topic3", 0x00);
     MQTT311Client_Subscribe(0x02, "/topic/topic4", 0x00);
 
-    /* ----- Unsubscribe to some topic ----- */
+    /* ----- Unsubscribe from some topic ----- */
     vTaskDelay(pdMS_TO_TICKS(1000));
     MQTT311Client_Unsubscribe(0x02, "/topic/topic4");
 
