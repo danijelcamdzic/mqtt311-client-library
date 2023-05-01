@@ -7,10 +7,14 @@
  */
 
 /* Included libraries */
-#include "MQTT311Client/MQTT311Client.h"
+#include "MQTT311Client/MQTT311Client_Publish.h"
+#include "MQTT311Client/MQTT311Client_Puback.h"
+#include "MQTT311Client/MQTT311Client_Pubrel.h"
+#include "MQTT311Client/MQTT311Client_Pubrec.h"
+#include "MQTT311Client/MQTT311Client_Pubcomp.h"
 
 /* Private function declaration */
-static void MQTT311Client_AppendMessagePayload(const char* message_payload);
+static void MQTT311Client_AppendMessagePayload(const char* message_payload, uint32_t payload_length);
 static PublishMessageResult_t MQTT311Client_PublishWithStruct(struct PUBLISH_MESSAGE *publish_message_data);
 
 /**
@@ -20,11 +24,9 @@ static PublishMessageResult_t MQTT311Client_PublishWithStruct(struct PUBLISH_MES
  *
  * @return None
  */
-static void MQTT311Client_AppendMessagePayload(const char* message_payload) 
+static void MQTT311Client_AppendMessagePayload(const char* message_payload, uint32_t payload_length) 
 {
-    uint16_t messagePayloadLength = strlen(message_payload);
-
-    MQTT311Client_AppendData(message_payload, messagePayloadLength, false);
+    MQTT311Client_AppendData(message_payload, payload_length, false);
 }
 
 /**
@@ -65,7 +67,7 @@ static PublishMessageResult_t MQTT311Client_PublishWithStruct(struct PUBLISH_MES
 
     if (strcmp(publish_message_data->payload, "") != 0)
     {
-        MQTT311Client_AppendMessagePayload(publish_message_data->payload);
+        MQTT311Client_AppendMessagePayload(publish_message_data->payload, publish_message_data->payload_length);
     }
     
     /* Encode remaining length if larger than 127 */
@@ -141,10 +143,11 @@ static PublishMessageResult_t MQTT311Client_PublishWithStruct(struct PUBLISH_MES
  * @param topicName Name of the topic that gets published
  * @param packetIdentifier Identifier of the packet. Possible only when QoS == 1 or QoS == 2
  * @param payload Data that gets published
+ * @param payload_length Length of the payload data
  *
  * @return None
  */
-void MQTT311Client_Publish(uint8_t header_flags, const char* topicName, uint16_t packetIdentifier, const char* payload)
+void MQTT311Client_Publish(uint8_t header_flags, const char* topicName, uint16_t packetIdentifier, const char* payload, uint32_t payload_length)
 {
     /* Creating a PUBLISH_MESSAGE structure */
     struct PUBLISH_MESSAGE* publish_message_data = (struct PUBLISH_MESSAGE*) pvPortMalloc(sizeof *publish_message_data);
@@ -178,9 +181,12 @@ void MQTT311Client_Publish(uint8_t header_flags, const char* topicName, uint16_t
     }
 
     /* Filling up the structure - Payload*/
-    publish_message_data->payload = (char*) pvPortMalloc(strlen(payload)+1);
+    publish_message_data->payload = (char*) pvPortMalloc(payload_length);
     NULL_CHECK(publish_message_data->payload)
-    memcpy(publish_message_data->payload, payload, strlen(payload)+1);
+    memcpy(publish_message_data->payload, payload, payload_length);
+
+    /* Filling up the payload length */
+    publish_message_data->payload_length = payload_length;
 
     /* Connecting a function */
     publish_message_data->MQTT311Client_PublishWithStruct = &MQTT311Client_PublishWithStruct;

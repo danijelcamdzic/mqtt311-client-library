@@ -9,7 +9,22 @@
  */
 
 /* Included libraries */
-#include "MQTT311Client/MQTT311Client.h"
+#include "MQTT311Client/MQTT311Client_Utilities.h"
+#include "MQTT311Client/MQTT311Client_Driver.h"
+#include "MQTT311Client/MQTT311Client_Connect.h"
+#include "MQTT311Client/MQTT311Client_Connack.h"
+#include "MQTT311Client/MQTT311Client_Publish.h"
+#include "MQTT311Client/MQTT311Client_Puback.h"
+#include "MQTT311Client/MQTT311Client_Pubrec.h"
+#include "MQTT311Client/MQTT311Client_Pubrel.h"
+#include "MQTT311Client/MQTT311Client_Pubcomp.h"
+#include "MQTT311Client/MQTT311Client_Subscribe.h"
+#include "MQTT311Client/MQTT311Client_Suback.h"
+#include "MQTT311Client/MQTT311Client_Unsubscribe.h"
+#include "MQTT311Client/MQTT311Client_Unsuback.h"
+#include "MQTT311Client/MQTT311Client_Pingreq.h"
+#include "MQTT311Client/MQTT311Client_Pingresp.h"
+#include "MQTT311Client/MQTT311Client_Disconnect.h"
 
 /* Variable definitions */
 
@@ -42,11 +57,11 @@ static void MQTT311Client_SetPortNumber(uint16_t port);
 /* Setting the external functions */
 /**
  * @brief Sets the MQTT 3.1.1 Connect TCP Socket function.
- * @param connect_tcp_socket Function pointer to the user-defined MQTT 3.1.1 Connect TCP Socket function.
+ * @param tcp_connect_socket Function pointer to the user-defined MQTT 3.1.1 Connect TCP Socket function.
  */
-void MQTT311Client_SetConnectTCPSocket(MQTT311Client_ConnectTCPSocketPtr connect_tcp_socket)
+void MQTT311Client_SetConnectTCPSocket(MQTT311Client_ConnectTCPSocketPtr tcp_connect_socket)
 {
-    MQTT311Client_ConnectTCPSocket = connect_tcp_socket;
+    MQTT311Client_ConnectTCPSocket = tcp_connect_socket;
 }
 
 /**
@@ -89,9 +104,9 @@ void MQTT311Client_SetPrint(MQTT311Client_PrintPtr print)
  * @brief Sets the MQTT 3.1.1 process buffer data function.
  * @param print Function pointer to the user-defined MQTT 3.1.1 process buffer data function.
  */
-void MQTT311Client_SetProcessBufferData(MQTT311Client_ProcessBufferDataPtr process_buffer_data)
+void MQTT311Client_SetProcessBufferData(MQTT311Client_ProcessBufferDataPtr mqtt_process_buffer_data)
 {
-    MQTT311Client_ProcessBufferData = process_buffer_data;
+    MQTT311Client_ProcessBufferData = mqtt_process_buffer_data;
 }
 
 /**

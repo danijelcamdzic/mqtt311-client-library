@@ -17,12 +17,14 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "MQTT311Client/MQTT311Client.h"
 
 /*   ----------------- PINGREQ MESSAGE STRUCTURE | B0 | B1 | B2 | .. ----------------------
 
      | MQTT Control Packet Type | Remaining Length(0) |
     ...
 */
+
 /* Return Type of the Pingreq Message */
 typedef enum PingreqMessageResult_e
 {
@@ -34,8 +36,8 @@ typedef enum PingreqMessageResult_e
 struct PINGREQ_MESSAGE 
 {
     PingreqMessageResult_t (*MQTT311Client_PingreqWithStruct)(struct PINGREQ_MESSAGE*);
-    uint16_t remaining_length;                      /* Remaining length of the packet  = 0 for PINGREQ*/  
-    uint8_t packet_type;                            /* MQTT Message Packet Type*/
+    uint16_t remaining_length;                      /**< Remaining length of the packet  = 0 for PINGREQ*/  
+    uint8_t packet_type;                            /**< MQTT Message Packet Type*/
 };
 
 /* ----------------------------------------------------------------------------------------- */

@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "MQTT311Client/MQTT311Client.h"
 
 /*   ----------------- UNSUBSCRIBE MESSAGE STRUCTURE | B0 | B1 | B2 | .. ----------------------
 
@@ -22,7 +23,7 @@
     ...
 */
 
-#define UNSUB_RESERVED                      0x02    /* Reserved field of the header */
+#define UNSUB_RESERVED                      0x02    /**< Reserved field of the header */
 
 /* Return Type of the Unsubscribe Message */
 typedef enum UnsubscribeMessageResult_e
@@ -36,11 +37,11 @@ struct UNSUBSCRIBE_MESSAGE
 {
     UnsubscribeMessageResult_t (*MQTT311Client_UnsubscribeWithStruct)(struct UNSUBSCRIBE_MESSAGE *);
 
-    char* topic_name;                               /* Topic name to unsubscribe from */
+    char* topic_name;                               /**< Topic name to unsubscribe from */
     
-    uint16_t remaining_length;                      /* Remaining length of the packet */  
-    uint16_t packet_identifier;                     /* Packet identifier from the publish message */
-    uint8_t packet_type;                            /* MQTT Message Packet Type*/
+    uint16_t remaining_length;                      /**< Remaining length of the packet */  
+    uint16_t packet_identifier;                     /**< Packet identifier from the publish message */
+    uint8_t packet_type;                            /**< MQTT Message Packet Type*/
 };
 
 /* Function declarations */
