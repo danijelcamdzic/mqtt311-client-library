@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/CMakeFiles/bootloader
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/CMakeFiles/bootloader.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/CMakeFiles/bootloader-complete.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/danijelcamdzic/Projects/mqtt311-client-library/examples/esp32/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
