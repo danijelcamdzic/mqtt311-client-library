@@ -56,7 +56,7 @@ idf.py flash
 You can see the commands in the `main` file in the `app_main` function:
 
 ```c
-    /* Initialize Wifi */
+    /* Initialize Wi-Fi */
     ESP_LOGI(TAG, "Initializing device as station and connecting to wifi...");
     wifi_init_sta();
 
