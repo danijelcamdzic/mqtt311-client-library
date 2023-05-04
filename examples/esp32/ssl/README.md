@@ -1,6 +1,6 @@
 # About
 
-This example shows how the ESP32 is used to connect to the internet and how the library is used to connect to the MQTT broker (mqtt.eclipseprojects.io) on port 1883 (TCP port) and publish/subscribe to some topics, ping the broker and at the end, disconnect.
+This example shows how the ESP32 is used to connect to the internet and how the library is used to connect to the MQTT broker (mqtt.eclipseprojects.io) on port 8883 (SSL port) and publish/subscribe to some topics, ping the broker and at the end, disconnect.
 
 ## Setting Up the Enviroment
 
@@ -48,9 +48,9 @@ You can see the commands in the `main` file in the `app_main` function:
     wifi_init_sta();
 
     /* Set external functions for MQTT library */
-    MQTT311Client_SetConnectTCPSocket(tcp_connect_socket);
-    MQTT311Client_SetSendToTCPSocket(tcp_send_data);
-    MQTT311Client_SetReadFromTCPSocket(tcp_receive_data);
+    MQTT311Client_SetConnectSocket(ssl_connect_socket);
+    MQTT311Client_SetSendToSocket(ssl_send_data);
+    MQTT311Client_SetReadFromSocket(ssl_receive_data);
     MQTT311Client_SetPrint(debug_print);
     MQTT311Client_SetProcessBufferData(mqtt_process_buffer_data);
 
@@ -59,7 +59,7 @@ You can see the commands in the `main` file in the `app_main` function:
 
     /* Connect to MQTT broker */
     MQTT311Client_CreateClient(CLIENT_ID);
-    MQTT311Client_EstablishConnectionToMQTTBroker(BROKER_ADDRESS, BROKER_PORT_TCP);
+    MQTT311Client_EstablishConnectionToMQTTBroker(BROKER_ADDRESS, BROKER_PORT_SSL);
     MQTT311Client_SetUsernameAndPassword(USERNAME, PASSWORD);
     MQTT311Client_Connect(0xC2, KEEP_ALIVE, "", "");
    
@@ -90,4 +90,4 @@ You can see the commands in the `main` file in the `app_main` function:
 
 And you can follow the results of the command on the terminal, which, if you flashed the exact same example, will look like this:
 
-![Monitoring MQTT Connection](/assets/monitoring_mqtt.png)
+![Monitoring MQTT Connection](/assets/monitoring_mqtt_ssl.png)
