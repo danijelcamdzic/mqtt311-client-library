@@ -17,8 +17,8 @@ There are two complete examples on how to use this library to connect to an MQTT
 
 ## TCP Connection
 
-For example usage with TCP socket, check out the [ESP32 TCP example!](/examples/esp32/tcp/)
+For example usage with TCP socket, check out the [ESP32 TCP example](/examples/esp32/tcp/)
 
 ## SSL Connection
 
-For example usage with SSL socket, check out the [ESP32 SSL example!](/examples/esp32/ssl/)
+For example usage with SSL socket, check out the [ESP32 SSL example](/examples/esp32/ssl/)
