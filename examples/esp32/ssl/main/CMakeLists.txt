@@ -1,0 +1,22 @@
+idf_component_register(SRCS "main.c"
+                            "ssl_functions.c"
+                            "mqtt_functions.c"
+                            "../MQTT311Client/MQTT311Client_Utilities.c"
+                            "../MQTT311Client/MQTT311Client_Driver.c"
+                            "../MQTT311Client/MQTT311Client_Connect.c"
+                            "../MQTT311Client/MQTT311Client_Connack.c"
+                            "../MQTT311Client/MQTT311Client_Publish.c"
+                            "../MQTT311Client/MQTT311Client_Puback.c"
+                            "../MQTT311Client/MQTT311Client_Pubrec.c"
+                            "../MQTT311Client/MQTT311Client_Pubrel.c"
+                            "../MQTT311Client/MQTT311Client_Pubcomp.c"
+                            "../MQTT311Client/MQTT311Client_Subscribe.c"
+                            "../MQTT311Client/MQTT311Client_Suback.c"
+                            "../MQTT311Client/MQTT311Client_Unsubscribe.c"
+                            "../MQTT311Client/MQTT311Client_Unsuback.c"
+                            "../MQTT311Client/MQTT311Client_Pingreq.c"
+                            "../MQTT311Client/MQTT311Client_Pingresp.c"
+                            "../MQTT311Client/MQTT311Client_Disconnect.c"
+                    INCLUDE_DIRS "." "../MQTT311Client" "..")
+
+

@@ -24,6 +24,8 @@
 #define BROKER_PORT_TCP             1883
 #define KEEP_ALIVE                  600
 #define CLIENT_ID                   "client_id"
+#define USERNAME                    ""
+#define PASSWORD                    ""
 
 /* MQTT utility function prototypes */
 void mqtt_process_buffer_data(void);
