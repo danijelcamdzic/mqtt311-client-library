@@ -287,9 +287,9 @@ void app_main(void)
     wifi_init_sta();
 
     /* Set external functions for MQTT library */
-    MQTT311Client_SetConnectTCPSocket(tcp_connect_socket);
-    MQTT311Client_SetSendToTCPSocket(tcp_send_data);
-    MQTT311Client_SetReadFromTCPSocket(tcp_receive_data);
+    MQTT311Client_SetConnectSocket(tcp_connect_socket);
+    MQTT311Client_SetSendToSocket(tcp_send_data);
+    MQTT311Client_SetReadFromSocket(tcp_receive_data);
     MQTT311Client_SetPrint(debug_print);
     MQTT311Client_SetProcessBufferData(mqtt_process_buffer_data);
 
