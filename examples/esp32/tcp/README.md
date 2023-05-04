@@ -1,6 +1,6 @@
 # About
 
-This example shows how the ESP32 is used to connect to the internet and how the library is used to connect to the MQTT broker (mqtt.eclipseprojects.io) on port 8883 (SSL port) and publish/subscribe to some topics, ping the broker and at the end, disconnect.
+This example shows how the ESP32 is used to connect to the internet and how the library is used to connect to the MQTT broker (mqtt.eclipseprojects.io) on port 1883 (TCP port) and publish/subscribe to some topics, ping the broker and at the end, disconnect.
 
 ## Setting Up the Enviroment
 
