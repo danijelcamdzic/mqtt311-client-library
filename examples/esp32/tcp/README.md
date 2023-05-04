@@ -48,9 +48,9 @@ You can see the commands in the `main` file in the `app_main` function:
     wifi_init_sta();
 
     /* Set external functions for MQTT library */
-    MQTT311Client_SetConnectTCPSocket(ssl_connect_socket);
-    MQTT311Client_SetSendToTCPSocket(ssl_send_data);
-    MQTT311Client_SetReadFromTCPSocket(ssl_receive_data);
+    MQTT311Client_SetConnectSocket(tcp_connect_socket);
+    MQTT311Client_SetSendToSocket(tcp_send_data);
+    MQTT311Client_SetReadFromSocket(tcp_receive_data);
     MQTT311Client_SetPrint(debug_print);
     MQTT311Client_SetProcessBufferData(mqtt_process_buffer_data);
 
@@ -59,7 +59,7 @@ You can see the commands in the `main` file in the `app_main` function:
 
     /* Connect to MQTT broker */
     MQTT311Client_CreateClient(CLIENT_ID);
-    MQTT311Client_EstablishConnectionToMQTTBroker(BROKER_ADDRESS, BROKER_PORT_SSL);
+    MQTT311Client_EstablishConnectionToMQTTBroker(BROKER_ADDRESS, BROKER_PORT_TCP);
     MQTT311Client_SetUsernameAndPassword(USERNAME, PASSWORD);
     MQTT311Client_Connect(0xC2, KEEP_ALIVE, "", "");
    
@@ -90,4 +90,4 @@ You can see the commands in the `main` file in the `app_main` function:
 
 And you can follow the results of the command on the terminal, which, if you flashed the exact same example, will look like this:
 
-![Monitoring MQTT Connection](/assets/monitoring_mqtt_ssl.png)
+![Monitoring MQTT Connection](/assets/monitoring_mqtt.png)
