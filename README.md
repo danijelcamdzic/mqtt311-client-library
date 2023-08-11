@@ -15,7 +15,7 @@ This library can work on any microcontroller or system that has an internet conn
 For more in-depth information, see the following documents:
 
 - [FreeRTOS Incorporation](doc/freertos_incorporation.md)
-- [Flixibility and Extensibility](doc/flexibility_and_extensibility.md)
+- [Flexibility and Extensibility](doc/flexibility_and_extensibility.md)
 
 # Usage
 
